@@ -1,0 +1,7 @@
+0 pwd
+   1 mkdir -p /home/user/start && cd /home/user/start && echo "Start" > 1.txt && date >> 1.txt
+   2 cd / && mkdir -p /opt/task && cp /home/user/start/1.txt /opt/task/start.txt && cat /opt/task/start.txt
+   3 ls -la | grep "^-" | tail -4 >> /opt/task/start.txt
+   4 cat /opt/task/start.txt
+   5 history
+   6 history > history.txt

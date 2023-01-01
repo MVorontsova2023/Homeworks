@@ -1,0 +1,39 @@
+   0 df -h
+   1 df -h | grep -w
+   2 awk
+   3 df -h | grep -w /
+   4 df -h 
+   5 df -h | grep -w /
+   6 df -h | grep -w / | awk '{print $1}'
+   7 df -h | grep -w / | awk '{print $4}'
+   8 df -h | grep -w / | awk '{print $5}'
+   9 df -h | awk '{print $5}'
+  10 df -h | awk '{print $4}'
+  11 df -h | awk '{print $4}
+  12 df -h | awk '{print $4}'
+  13 vi
+  14 df -h | awk '{print $4}'
+  15 vi
+  16 nano
+  17 pwd
+  18 ls /
+  19 cd /opt
+  20 ls
+  21 cd /home
+  22 ls -l
+  23 mkdir ivan
+  24 pwd
+  25 cd ivan
+  26 nano text.txt
+  27 ls -l
+  28 ls -la
+  29 nano text.txt
+  30 ls -l
+  31 nano text.txt
+  32 cat /etc/group | tail -5
+  33 cat /etc/group | tail -5 >> text.txt
+  34 nano text.txt
+  35 vi text.txt
+  36 nano text.txt
+  37 history
+  38 history > history.txt
