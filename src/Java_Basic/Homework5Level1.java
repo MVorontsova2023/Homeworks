@@ -12,6 +12,7 @@ public class Homework5Level1 {
 
         Task3 task3 = new Task3();
         task3.main();
+
     }
 
     static class Task1  {
@@ -25,7 +26,8 @@ public class Homework5Level1 {
 
             if (isWeekend && !isRain)
                 canWalk = true;
-            else canWalk = false;
+            else
+                canWalk = false;
 
             System.out.println(canWalk);
         }
