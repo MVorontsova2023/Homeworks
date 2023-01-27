@@ -1,0 +1,17 @@
+cd /opt/48_49_morning/mvorontsova
+nano myscript.sh
+#!/bin/bash
+touch /opt/48_49_morning/mvorontsova/mvorontsova.txt
+date >> /opt/48_49_morning/mvorontsova/mvorontsova.txt
+cat /etc/group | tail -3 >> /opt/48_49_morning/mvorontsova/mvorontsova.txt
+sed -i 's/user/mvorontsova/g' /opt/48_49_morning/mvorontsova/mvorontsova.txt
+
+chmod 744 myscript.sh
+/opt/48_49_morning/mvorontsova/myscript.sh
+
+
+
+Fri Jan 27 19:48:44 UTC 2023
+supermvorontsova1:x:1004:
+1111111:x:1005:
+basic_55-56e:x:1006:
