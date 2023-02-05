@@ -1,0 +1,6 @@
+cd /opt/48_49_morning/mvorontsova
+echo -e '#!/bin/bash\n echo -n "Введите ваше имя "\n read USER\n date\n echo "Hello $USER"\n' > myfirstbashscript.sh 
+echo -e 'echo -n "PWD: "\n pwd \n echo -n "CPUs: "\n ps -ef | wc -l\n echo -n "/etc/passwd permissions: "\n ls -l /etc/passwd | awk \x27{print $1}\x27 ' >> myfirstbashscript.sh
+chmod 744 myfirstbashscript.sh
+cat myfirstbashscript.sh
+./myfirstbashscript.sh
