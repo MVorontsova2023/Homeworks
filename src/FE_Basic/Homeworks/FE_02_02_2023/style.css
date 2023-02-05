@@ -1,0 +1,77 @@
+@import url('https://fonts.googleapis.com/css2?family=Noto+Sans&display=swap');
+     
+.currency-table {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  justify-content: center;
+  width: 100%;
+}
+
+.currency-row {
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  width: 25%;
+  padding: 20px;
+  box-sizing: border-box;
+}
+
+.currency-code {
+  font-size: 40px;
+  margin-right: 10px;
+}
+
+.currency-symbol {
+  font-size: 40px;
+  font-family: 'Noto Sans', sans-serif;
+  margin-right: 10px;
+}
+
+.currency-flag {
+  width: 50px;
+  height: 50px;
+  margin-right: 10px;
+}
+
+.table {
+    display: table;
+    border: 1px solid black;
+    padding: 5px;
+}
+ 
+.row {
+    display: table-row;  
+}
+ 
+.cell {
+    display: table-cell;
+    height: 50px;
+    vertical-align: middle;
+}
+
+.bordr {
+    display: flex;
+    align-items: center;
+    margin:5px;
+    border:2px solid black;
+    height: 90%;
+    text-align: center;
+    justify-content: center;
+    font-size: 30px;
+}
+
+.image-row {
+    text-align: center;
+}
+
+.image-box {
+    width: 100px;
+    padding: 1%;
+    margin: 1%;
+    display: inline-block;
+}
+
+.image-box img {
+    max-width: 100%;
+}
