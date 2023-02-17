@@ -1,0 +1,10 @@
+cd /opt/48_49_morning/mvorontsova
+mkdir tmp
+export EDITOR=nano
+echo -e '#!/bin/bash\n cd /opt/48_49_morning/mvorontsova/tmp\n counter=1\n while [ $counter -le 10 ]\n do\n d=$(date +"%d%m%y")\n f=$counter$d\n touch $f\n ((counter++))\n done\n'  > taskmvorontsova.sh
+chmod 744 taskmvorontsova.sh
+cat taskmvorontsova.sh
+crontab -l
+crontab -e
+
+*/15 * * * * /opt/48_49_morning/mvorontsova/taskmvorontsova.sh
