@@ -1,0 +1,28 @@
+Мой вариант типовых бизнес процессов для ВИДЕОСТРИМИНГ-ПЛАТФОРМЫ:
+
+1. Управление пользователями
+Таблица "Users" со следующими полями: id, username, email, password, role, created_at, updated_at, IsClosed
+Таблица "User_profiles" со следующими полями: user_id, name, avatar, bio, location, website, created_at, updated_at
+
+2.Управление видео-контентом
+Таблица "Videos" со следующими полями: id, user_id, title, description, duration, thumbnail, video_file, created_at, updated_at, IsClosed
+Таблица "Categories" со следующими полями: id, name, created_at, updated_at, IsClosed
+Таблица "Video_categories" со следующими полями: video_id, category_id
+
+3. Управление подписками и платежами
+Таблица "Plans" со следующими полями: id, name, description, price, created_at, updated_at, IsClosed
+Таблица "Subscriptions" со следующими полями: id, user_id, plan_id, start_date, end_date, status, created_at, updated_at
+Таблица "Transactions" со следующими полями: id, user_id, subscription_id, amount, transaction_id, status, created_at, updated_at
+
+4. Управление комментариями
+Таблица "Comments" со следующими полями: id, user_id, video_id, comment_text, created_at, updated_at, IsClosed
+
+5. Управление рейтингами и отзывами
+Таблица "Ratings" со следующими полями: id, user_id, video_id, rating, created_at, updated_at, IsClosed
+Таблица "Reviews" со следующими полями: id, user_id, video_id, review_text, created_at, updated_at, IsClosed
+
+6. Управление поиском и рекомендациями
+Таблица "Tags" со следующими полями: id, name, created_at, updated_at, IsClosed
+Таблица "Video_tags" со следующими полями: video_id, tag_id
+Таблица "Watch_history" со следующими полями: id, user_id, video_id, watched_at
+Таблица "Recommendations" со следующими полями: id, user_id, video_id, recommended_at
