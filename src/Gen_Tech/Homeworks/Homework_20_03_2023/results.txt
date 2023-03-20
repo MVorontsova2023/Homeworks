@@ -1,0 +1,21 @@
+две таблицы для:
+
+реакций (на стримы):
+create table if not exists reviews (
+	review_id integer primary key auto_increment,
+    stream_id integer,
+    title varchar(256) not null,
+    created_at datetime default current_timestamp,
+    is_verified bool default true,
+    FOREIGN KEY (stream_id) REFERENCES streams(stream_id)
+);
+
+донатов (пожертвований):
+create table if not exists donations (
+	donation_id integer primary key auto_increment,
+    user_id integer,
+    sum float,
+    created_at datetime default current_timestamp,
+    is_verified bool default true,
+    FOREIGN KEY (user_id) REFERENCES users(user_id)
+);
