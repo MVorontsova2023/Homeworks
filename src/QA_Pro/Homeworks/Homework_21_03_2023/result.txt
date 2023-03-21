@@ -1,0 +1,63 @@
+Тест на валидацию  JSON схемы в ответе на запрос get post list:
+
+var schema = {
+   "type" : "object",
+   "propirties":{
+        "data":{
+            "type": "array",
+            "itens":{
+                "type": "object",
+                "properties":{
+                    "id":{
+                        "type": "string"
+                    },
+                 "image":{
+                        "type": "string"
+                    }, 
+                    "likes":{
+                        "type": "integer"
+                    }, 
+                    "tags":{
+                        "type": "array",
+                        "itens":{
+                            "type": "string"
+                    }, 
+                    "text":{
+                        "type": "string"
+                    },     
+                    "publishDate":{
+                        "type": "string"
+                    }, 
+                    "updatedDate":{
+                        "type": "string"    
+                },
+                "owner":{ 
+            "type": "object",
+            "properties":{
+                "id":{
+                    "type": "string"
+                },
+                "title":{
+                    "type": "string"
+                }
+            },
+            "firstName":{
+                "type": "string"
+            },
+            "lastName":{
+                "type": "string"
+            },
+            "picture":{
+                "type": "string"
+            }
+        }
+    }
+                }
+            }
+        }
+   }
+};
+var jsonDataResponse = pm.response.json();
+pm.test('Schema is valid', function () {
+    pm.expect(tv4.validate(jsonDataResponse, schema)).to.be.true;
+});
