@@ -1,0 +1,34 @@
+запросы:
+
+(1) Вывести пользователей, у которых не укан email-адрес
+SELECT * FROM platform.users
+WHERE e_mail is NULL;
+
+
+(2) Вывести незаблокированных пользователей из Китая
+SELECT * FROM platform.users
+WHERE country = 'CH' and is_blocked = 0;
+
+
+(3) Вывести стримы, авторы которых заблокированы
+SELECT streams.* 
+FROM streams
+JOIN users
+ON streams.user_id = users.user_id
+WHERE users.is_blocked = 1;
+
+
+(4) Вывести три последних реакции (включая имя_пользователя)
+SELECT reactions.* , users.fullname
+FROM reactions
+JOIN users
+ON reactions.user_id = users.user_id
+ORDER BY reactions.created_at DESC
+LIMIT 3;
+
+(5) Вывести пожертвования заблокированных пользователей
+SELECT donations.* 
+FROM donations
+JOIN  users  ON donations.donator_id=users.user_id
+JOIN  streams  ON donations.stream_id=streams.stream_id
+WHERE users.is_blocked = 1;
