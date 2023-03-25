@@ -1,0 +1,15 @@
+pm.sendRequest({
+url: "https://dummyapi.io/data/v1/user/{{userId}}",
+method: "DELETE",
+header: {"Content-Type": "application/json","app-id":"640a2d8c7a47634a4db5b741"},
+body: {
+   mode: 'raw',
+   raw:JSON.stringify({
+       "lastName": "Ivanoff",
+       "firstName": "Ivan"
+
+      })}  },
+function (err, response) { 
+   var jsonDataResponse = response.json()
+   console.log(jsonDataResponse.id)
+    })
