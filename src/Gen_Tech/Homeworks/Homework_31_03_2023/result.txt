@@ -1,0 +1,23 @@
+(1) Вывести все пожертвования от 10 EUR, с указанием имениавторапожертвования и суммы
+SELECT amount, fullname FROM platform.donations
+JOIN streams
+ON donations.stream_id = streams.stream_id
+JOIN users
+ON streams.user_id = users.user_id
+WHERE amount >= 10;
+
+(2) Вывести стримера, которому было сделано самое минимальное пожертвование (имя_стримера, сумма)
+SELECT fullname AS streamer, amount FROM platform.streams
+JOIN donations
+ON donations.stream_id = streams.stream_id
+JOIN users
+ON streams.user_id = users.user_id
+ORDER BY amount ASC
+LIMIT 1;
+
+(3) Вывести последнее пожертвование (название_стрима, сумма)
+SELECT title, amount FROM platform.donations
+JOIN streams
+ON donations.stream_id = streams.stream_id
+ORDER BY donations.created_at DESC
+LIMIT 1;
