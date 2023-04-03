@@ -1,0 +1,35 @@
+1 уровень сложности: (1) Описать связи между таблицами БД "песочница"
+Suppliers.SupplierID (1:M) Products.SupplierID
+Shippers.ShipperID (1:M) Orders.ShipperID
+Categories.CategoryID (1:M) Products.CategoryID
+Products.ProductID (1:M) OrderDetails.ProductID
+Orders.OrderID (1:M) OrderDetails.OrderID
+Employees.EmployeeID (1:M) Orders.EmployeeID
+Customers.CustomerID (1:M) Orders.CustomerID
+
+
+(2) Вывести страны клиентов (БД platform)
+SELECT Country FROM Customers;
+
+
+(3) Вывести пользователей без пароля (БД platform)
+SELECT * FROM platform.users
+WHERE password is NULL;
+
+
+(4) Вывести страны донаторов с максимальным и минимальным пожертвованиями (БД platform)
+(SELECT amount, country FROM platform.donations
+JOIN streams
+ON donations.stream_id = streams.stream_id
+JOIN users
+ON streams.user_id = users.user_id
+ORDER BY amount DESC
+LIMIT 1)
+UNION
+(SELECT amount, country FROM platform.donations
+JOIN streams
+ON donations.stream_id = streams.stream_id
+JOIN users
+ON streams.user_id = users.user_id
+ORDER BY amount ASC
+LIMIT 1);
