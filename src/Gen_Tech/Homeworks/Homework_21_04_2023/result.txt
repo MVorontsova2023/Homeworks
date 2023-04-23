@@ -1,0 +1,65 @@
+
+Table movies {
+  movie_id integer [primary key]
+  movie_name nvarchar[255]
+  isactive boolean
+  created_at timestamp
+}
+
+Table halls {
+  hall_id integer [primary key]
+  hall_name nvarchar[255]
+  isactive boolean
+  created_at timestamp
+}
+
+Table timetable {
+  timetable_id integer [primary key]
+  movie_id integer
+  hall_id integer
+  start_datetime datetime
+  prise float
+  price_vip float
+  isactive boolean
+  created_at timestamp
+}
+
+Table tickets {
+  ticket_id integer [primary key]
+  user_id integer
+  timetable_id integer
+  is_vip boolean
+  isPayed boolean
+  place varchar[10]
+  created_at timestamp 
+}
+
+Table users {
+  user_id integer [primary key]
+  username varchar
+  isblocked boolean
+  created_at timestamp
+}
+
+Table discounttype {
+  discounttype_id integer [primary key]
+  description nvarchar[255]
+  isactive boolean
+  created_at timestamp
+}
+
+Table discounts {
+  discount_id integer [primary key]
+  value float
+  ticket_id integer
+  discounttype_id integer
+  created_at timestamp
+}
+
+Ref: tickets.user_id > users.user_id // many-to-one
+Ref: discounts.discounttype_id > discounttype.discounttype_id
+Ref: tickets.ticket_id - discounts.ticket_id
+Ref: timetable.movie_id > movies.movie_id
+Ref: timetable.hall_id > halls.hall_id
+Ref: tickets.timetable_id > timetable.timetable_id
+
