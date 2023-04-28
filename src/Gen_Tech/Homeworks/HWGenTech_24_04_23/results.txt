@@ -9,7 +9,7 @@ ORDER BY summa DESC
 LIMIT 2;
 
 (2) Вывести рейтинг для каждого незавершенного стрима
-select title, value as reiting
+SELECT title, value as reiting
 FROM streams
 JOIN reactions ON reactions.stream_id = streams.stream_id
 WHERE is_completed = 0;
