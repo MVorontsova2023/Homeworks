@@ -1,0 +1,17 @@
+ 1 уровень сложности: В рамках БД 'platform' написать след/запросы:
+
+Вывести количественное распределение оценок (реакций) по стриму №1.
+SELECT DISTINCT Value 
+FROM platform.reactions
+WHERE stream_id = 1
+ORDER BY value;
+
+Вывести список стран, откуда идут пожертвования.
+SELECT DISTINCT country FROM platform.donations
+JOIN users ON donations.donator_id = users.user_id;
+
+Вывести сумму и ко-во всех полученных пожертвований стримером №1 
+SELECT Sum( amount), count(*)
+FROM platform.donations
+JOIN streams ON donations.stream_id = streams.stream_id
+WHERE user_id = 1;
