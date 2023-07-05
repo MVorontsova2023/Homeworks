@@ -1,0 +1,73 @@
+1 уровень сложности: В рамках БД webchat
+
+
+Вывести юзеров, у которых нет сообщений
+db.users.aggregate([
+{
+    $lookup: {
+      from: "messages",
+      localField: "user_id",
+      foreignField: "author_id",
+      as: "messages"
+    }
+  },
+  {
+    $match: {
+      messages: { $size: 0 }
+    }
+  },
+  {
+    $project: {
+      fullname: 1,      
+      user_id: 1
+    }
+  }
+])
+
+Вывести юзеров, у которых нет ни сообщений не ТХ
+db.users.aggregate([
+  {
+    $lookup: {
+      from: "messages",
+      localField: "user_id",
+      foreignField: "author_id",
+      as: "messages"
+    }
+  },
+  {
+    $lookup: {
+      from: "transactions",
+      localField: "user_id",
+      foreignField: "sender_id",
+      as: "sender"
+    }
+  },
+  {
+    $lookup: {
+      from: "transactions",
+      localField: "user_id",
+      foreignField: "recepient_id",
+      as: "recepient"
+    }
+  },
+  {
+    $match: {
+      $and: [
+        { messages: { $size: 0 },
+        { sender:   { $size: 0 }, 
+        { recepient:{ $size: 0}                           }
+      ]
+    }
+  },
+  {
+    $project: {
+      fullname: 1,
+           _id: 0
+    }
+  }
+])
+
+
+
+Конспект занятия
+https://western-appeal-39b.notion.site/GenTech-Jun-26-2023-9034f2898a8943b3aed249edcc652d80?pvs=4 
